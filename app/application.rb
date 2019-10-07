@@ -8,7 +8,7 @@ class Application
       resp.write "Route not found"
       resp.status = 404
     else
-      item = @@items.find(|i| i.name == req.path.split("/items/").last)
+      item = @@items.find{|i| i.name == req.path.split("/items/").last}
       if item == nil
         resp.write "Item not found"
         resp.status = 400
